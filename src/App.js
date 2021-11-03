@@ -1,23 +1,29 @@
-import React from 'react'
-import { BrowserRouter as Router,Switch,Route } from 'react-router-dom'
-import Header from './Containers/Header'
-import ProductDetail from './Containers/ProductDetail'
-import ProductListing from './Containers/ProductListing'
-const App = () => {
-  return (
-    <div>
-     <Router>
-     <Header/>
-     <Switch>
-     <Route path="/" exact component={ProductListing}/>
-     <Route path="/product/:productId" exact component={ProductDetail}/>
-     <Route>404 Not Found</Route>
-     </Switch>
-     </Router>
-    </div>
+import CakeContainer from "./components/CakeContainer";
+import { Provider } from "react-redux";
+import store from './redux/store'
+import ItemContainer from "./components/ItemContainer";
+import IceCreamContainer from "./components/IceCreamContainer";
+import HooksCakeContainer from "./components/HooksCakeContainer";
+import NewCakeContainer from "./components/NewCakeContainer";
+import UserContainer from "./components/UserContainer";
+const App=()=>{
+
+  return(
+   <>
+   <Provider store ={store}>
+   <UserContainer/>
+  {/*
+  
+    <ItemContainer cake/>
+   <ItemContainer/>
+   <HooksCakeContainer/>
+   <CakeContainer/>
+   <IceCreamContainer/>
+   <NewCakeContainer/>
+  */}
+  </Provider>
+   </>
   )
 }
 
-export default App
-
-
+export default App;
